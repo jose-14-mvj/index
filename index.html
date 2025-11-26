@@ -101,6 +101,22 @@
             text-align: center;
             margin-top: 40px;
         }
+                /* NAVEGACIÓN */
+        nav {
+            background: var(--color-nav);
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            align-items: center;
+
+            /* === NAV SIEMPRE VISIBLE === */
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
     </style>
 </head>
 <body>
@@ -241,6 +257,8 @@
             mostrarPeliculas(todasLasPeliculas);
         });
     </script>
+    
+
 
 </body>
 </html>
