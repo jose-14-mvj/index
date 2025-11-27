@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CINE - JMMV</title>
 
-<!-- TIPOGRAFÍAS DEL ESTILO DEL LOGO -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
 /* PALETA BASADA EN TU LOGO */
 :root {
@@ -23,7 +20,7 @@
 body {
     background: var(--azul-profundo);
     color: var(--crema);
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
 }
 
@@ -52,7 +49,7 @@ body {
 .logo-titulo h1 {
     margin: 0;
     font-size: 40px;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: Impact, Arial Black, sans-serif;
     color: var(--naranja);
 }
 
@@ -61,6 +58,7 @@ nav.menu {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 nav.menu a {
@@ -76,13 +74,12 @@ nav.menu input, nav.menu select {
     border: none;
 }
 
-
 /* BOTÓN DE BUSCAR */
 nav.menu button {
     background: var(--naranja);
     color: var(--crema);
     cursor: pointer;
-    font-family: 'Bebas Neue';
+    font-family: Impact, Arial Black, sans-serif;
     border: 3px solid var(--naranja-oscuro);
 }
 
@@ -96,7 +93,7 @@ nav.menu button:hover {
 }
 
 h2 {
-    font-family: 'Bebas Neue';
+    font-family: Impact, Arial Black, sans-serif;
     color: var(--naranja);
 }
 
@@ -130,7 +127,7 @@ h2 {
     border: none;
     margin-top: 8px;
     cursor: pointer;
-    font-family: 'Bebas Neue';
+    font-family: Impact, Arial Black, sans-serif;
 }
 
 .btn-desc:hover {
@@ -162,14 +159,14 @@ h2 {
     cursor: pointer;
     background: var(--azul-verdoso);
     color: var(--crema);
-    font-family: 'Bebas Neue';
+    font-family: Impact, Arial Black, sans-serif;
 }
 
 #paginador .activo {
     background: var(--naranja);
 }
 
-/* FOOTER (NO MODIFICADO) */
+/* FOOTER */
 .footer {
     background:#0d131f;
     color:#d2d6e0;
@@ -197,6 +194,60 @@ h2 {
     font-size:14px;
     color:#8b96a9;
 }
+
+/* ----------------------------- */
+/*   ADAPTACIÓN A CELULARES      */
+/* ----------------------------- */
+
+@media (max-width: 768px) { /* TABLET */
+    .logo-titulo h1 {
+        font-size: 32px;
+    }
+    nav.menu {
+        gap: 10px;
+    }
+    nav.menu input, nav.menu select {
+        width: 140px;
+    }
+}
+
+@media (max-width: 480px) { /* CELULAR */
+    .barra-superior {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .logo-titulo {
+        flex-direction: column;
+    }
+
+    .logo-titulo img {
+        width: 60px;
+    }
+
+    .logo-titulo h1 {
+        font-size: 28px;
+    }
+
+    nav.menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    nav.menu input, nav.menu select {
+        width: 90%;
+    }
+
+    #paginador {
+        flex-wrap: wrap;
+    }
+
+    #paginador button {
+        width: 50px;
+    }
+}
 </style>
 </head>
 
@@ -212,7 +263,7 @@ h2 {
     <nav class="menu">
         <a id="linkInicio">Inicio</a>
         <a href="#peliculas">Películas</a>
-        <a href="#footerContacto">Contacto</a> <!-- ENLACE DIRECTO -->
+        <a href="#footerContacto">Contacto</a>
         <select id="filtroGenero">
             <option value="">Todos</option>
             <option value="28">Acción</option>
@@ -237,7 +288,6 @@ h2 {
 
 <div id="paginador"></div>
 
-<!-- FOOTER ORIGINAL INTACTO -->
 <footer class="footer" id="footerContacto">
     <div class="footer-contenido">
 
@@ -417,4 +467,3 @@ cargarPopulares();
 
 </body>
 </html>
-
