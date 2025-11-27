@@ -1,264 +1,419 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CINE - JMMV</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CINE - JMMV</title>
 
-    <style>
-        body {
-            background: #141c2c;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
+<!-- TIPOGRAFÍAS DEL ESTILO DEL LOGO -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        header {
-            background: #0f1624;
-            padding: 20px;
-            text-align: center;
-        }
+<style>
+/* PALETA BASADA EN TU LOGO */
+:root {
+    --naranja: #E97A35;
+    --naranja-oscuro: #C65B1A;
+    --azul-petroleo: #2A4B5A;
+    --azul-verdoso: #4F7A82;
+    --crema: #F2E3C6;
+    --azul-profundo: #1A2F36;
+}
 
-        header img {
-            width: 90px;
-        }
+/* FONDO + TEXTO */
+body {
+    background: var(--azul-profundo);
+    color: var(--crema);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
 
-        nav {
-            background: #1a2436;
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            align-items: center;
-        }
+/* BARRA SUPERIOR */
+.barra-superior {
+    background: var(--azul-petroleo);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 3px solid var(--naranja-oscuro);
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* LOGO + TÍTULO */
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-        nav input {
-            padding: 6px;
-            border-radius: 6px;
-            border: none;
-            width: 180px;
-        }
+.logo-titulo img {
+    width: 70px;
+}
 
-        nav button {
-            padding: 6px 10px;
-            border-radius: 6px;
-            border: none;
-            background:#0d6efd;
-            color:white;
-            cursor:pointer;
-        }
+.logo-titulo h1 {
+    margin: 0;
+    font-size: 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--naranja);
+}
 
-        .contenedor {
-            padding: 20px;
-        }
+/* MENÚ */
+nav.menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            align-items: start;
-        }
+nav.menu a {
+    color: var(--crema);
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .item {
-            background: #1d2a3b;
-            border-radius: 10px;
-            padding: 10px;
-        }
+nav.menu input, nav.menu select {
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+}
 
-        .poster {
-            width: 100%;
-            border-radius: 10px;
-        }
 
-        .btn-desc {
-            background: #0d6efd;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 8px;
-            border-radius: 6px;
-            margin-top: 8px;
-            cursor: pointer;
-        }
+/* BOTÓN DE BUSCAR */
+nav.menu button {
+    background: var(--naranja);
+    color: var(--crema);
+    cursor: pointer;
+    font-family: 'Bebas Neue';
+    border: 3px solid var(--naranja-oscuro);
+}
 
-        .descripcion {
-            display: none;
-            background: #17202c;
-            padding: 10px;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
+nav.menu button:hover {
+    background: var(--naranja-oscuro);
+}
 
-        .contacto {
-            background: #0f1624;
-            padding: 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-                /* NAVEGACIÓN */
-        nav {
-            background: var(--color-nav);
-            padding: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-            align-items: center;
+/* CONTENEDOR */
+.contenedor {
+    padding: 20px;
+}
 
-            /* === NAV SIEMPRE VISIBLE === */
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
+h2 {
+    font-family: 'Bebas Neue';
+    color: var(--naranja);
+}
 
-    </style>
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CARDS DE PELÍCULAS */
+.item {
+    background: var(--azul-verdoso);
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid var(--naranja-oscuro);
+}
+
+.poster {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* BOTÓN VER DESCRIPCIÓN */
+.btn-desc {
+    background: var(--naranja);
+    color: var(--crema);
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 8px;
+    cursor: pointer;
+    font-family: 'Bebas Neue';
+}
+
+.btn-desc:hover {
+    background: var(--naranja-oscuro);
+}
+
+/* DESCRIPCIÓN */
+.descripcion {
+    display: none;
+    background: var(--azul-petroleo);
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* PAGINADOR */
+#paginador {
+    text-align: center;
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#paginador button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--azul-verdoso);
+    color: var(--crema);
+    font-family: 'Bebas Neue';
+}
+
+#paginador .activo {
+    background: var(--naranja);
+}
+
+/* FOOTER (NO MODIFICADO) */
+.footer {
+    background:#0d131f;
+    color:#d2d6e0;
+    padding:40px 20px 10px;
+    margin-top:40px;
+}
+
+.footer-contenido {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.footer-col h3 {
+    color:white;
+}
+
+.footer-copy {
+    border-top:1px solid #1c2635;
+    margin-top:20px;
+    padding-top:10px;
+    text-align:center;
+    font-size:14px;
+    color:#8b96a9;
+}
+</style>
 </head>
+
+
 <body>
 
-    <header id="inicio">
+<header class="barra-superior">
+    <div class="logo-titulo">
         <img src="CJMMV.png" alt="Logo">
         <h1>CINE - JMMV</h1>
-    </header>
+    </div>
 
-    <nav>
-        <a href="#inicio" id="linkInicio">Inicio</a>
+    <nav class="menu">
+        <a id="linkInicio">Inicio</a>
         <a href="#peliculas">Películas</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#footerContacto">Contacto</a> <!-- ENLACE DIRECTO -->
+        <select id="filtroGenero">
+            <option value="">Todos</option>
+            <option value="28">Acción</option>
+            <option value="12">Aventura</option>
+            <option value="16">Animación</option>
+            <option value="35">Comedia</option>
+            <option value="80">Crimen</option>
+            <option value="18">Drama</option>
+            <option value="27">Terror</option>
+            <option value="878">Ciencia Ficción</option>
+        </select>
 
-        <input type="text" id="buscar" placeholder="Buscar película...">
+        <input id="buscar" type="text" placeholder="Buscar película...">
         <button id="btnBuscar">Buscar</button>
     </nav>
+</header>
 
-    <div class="contenedor">
-        <h2 id="peliculas">Películas Recientes</h2>
-        <div class="grid" id="contenedor-peliculas"></div>
+<div class="contenedor">
+    <h2 id="peliculas">Películas Recientes</h2>
+    <div class="grid" id="contenedor-peliculas"></div>
+</div>
+
+<div id="paginador"></div>
+
+<!-- FOOTER ORIGINAL INTACTO -->
+<footer class="footer" id="footerContacto">
+    <div class="footer-contenido">
+
+        <div class="footer-col">
+            <h3>Desarrollador</h3>
+            <p><strong>José Mario Macuchapi Villa</strong></p>
+            <p>Proyecto creado en <strong>noviembre de 2025</strong>.</p>
+            <p>Página web creada como demostración de cine digital.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Fuente de Datos (API)</h3>
+            <p>Las películas mostradas provienen de:</p>
+            <p><strong>The Movie Database (TMDB)</strong></p>
+            <p>Esta página usa la API de TMDB pero no está afiliada ni aprobada por TMDB.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Contacto</h3>
+            <p>📞 79135310</p>
+            <p>📧 josemariomacuchapivilla@gmail.com</p>
+            <p>📍 La Paz, Bolivia</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Enlaces</h3>
+            <a href="#inicio">Inicio</a><br>
+            <a href="#peliculas">Películas</a><br>
+            <a href="#footerContacto">Contacto</a>
+        </div>
+
     </div>
 
-    <div class="contacto" id="contacto">
-        <p>Teléfono: <strong>79135310</strong></p>
-        <p>Desarrollado por JMMV</p>
+    <div class="footer-copy">
+        <p>© Noviembre 2025 - CINE JMMV. Todos los derechos reservados.</p>
     </div>
+</footer>
 
-    <script>
-        const API_KEY = "912dd0733c76e627da6361f7bc7a8797";
 
-        const contenedor = document.getElementById("contenedor-peliculas");
-        const inputBuscar = document.getElementById("buscar");
-        const btnBuscar = document.getElementById("btnBuscar");
-        const linkInicio = document.getElementById("linkInicio");
+<script>
+/* API TMDB */
+const API_KEY = "912dd0733c76e627da6361f7bc7a8797";
 
-        let todasLasPeliculas = [];
-        const TOTAL_PAGINAS = 3; // Cantidad de páginas a cargar
+const contenedor = document.getElementById("contenedor-peliculas");
+const filtro = document.getElementById("filtroGenero");
+const buscar = document.getElementById("buscar");
+const btnBuscar = document.getElementById("btnBuscar");
+const paginador = document.getElementById("paginador");
+const linkInicio = document.getElementById("linkInicio");
 
-        // Carga inicial de películas (múltiples páginas)
-        async function cargarPeliculas() {
-            for (let i = 1; i <= TOTAL_PAGINAS; i++) {
-                const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=es-ES&page=${i}`;
-                try {
-                    const resp = await fetch(url);
-                    const data = await resp.json();
-                    if (data && data.results) {
-                        todasLasPeliculas = todasLasPeliculas.concat(data.results);
-                    }
-                } catch (error) {
-                    console.error("Error al cargar películas:", error);
-                }
-            }
-            mostrarPeliculas(todasLasPeliculas);
-        }
+let paginaActual = 1;
+let genero = "";
+const TOTAL_PAGINAS = 3;
+let paginas = [];
 
-        cargarPeliculas();
+/* CARGA INICIAL */
+async function cargarPopulares() {
+    paginas = [];
+    for (let i = 1; i <= TOTAL_PAGINAS; i++) {
+        const r = await fetch(
+            `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=es-ES&page=${i}`
+        );
+        paginas[i] = (await r.json()).results;
+    }
+    mostrar(paginas[paginaActual]);
+    crearPaginador();
+}
 
-        // Muestra una lista de películas en pantalla
-        function mostrarPeliculas(peliculas) {
-            contenedor.innerHTML = "";
+/* POR GÉNERO */
+async function cargarGenero() {
+    const r = await fetch(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=es-ES&with_genres=${genero}&page=${paginaActual}`
+    );
+    mostrar((await r.json()).results);
+    crearPaginador();
+}
 
-            if (!peliculas || peliculas.length === 0) {
-                contenedor.innerHTML = "<p>No se encontraron películas.</p>";
-                return;
-            }
+/* MOSTRAR PELÍCULAS */
+function mostrar(lista) {
+    contenedor.innerHTML = "";
 
-            peliculas.forEach(p => {
-                const poster = p.poster_path
-                    ? `https://image.tmdb.org/t/p/w500${p.poster_path}`
-                    : "https://via.placeholder.com/500x750?text=Sin+Imagen";
+    if (!lista?.length) {
+        contenedor.innerHTML = "<p>No se encontraron películas.</p>";
+        return;
+    }
 
-                const trailerUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(p.title + " trailer")}`;
+    lista.forEach(p => {
+        const poster = p.poster_path
+            ? `https://image.tmdb.org/t/p/w500${p.poster_path}`
+            : "https://via.placeholder.com/500x750?text=Sin Imagen";
 
-                const item = document.createElement("div");
-                item.classList.add("item");
+        const item = document.createElement("div");
+        item.className = "item";
+        item.innerHTML = `
+            <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(
+                p.title + " trailer"
+            )}" target="_blank">
+                <img src="${poster}" class="poster">
+            </a>
+            <button class="btn-desc">Ver descripción</button>
+            <div class="descripcion">
+                <p><strong>${p.title}</strong></p>
+                <p>${p.overview || "Sin descripción disponible."}</p>
+                <p><strong>Estreno:</strong> ${p.release_date}</p>
+            </div>
+        `;
 
-                const enlace = document.createElement("a");
-                enlace.href = trailerUrl;
-                enlace.target = "_blank";
+        item.querySelector(".btn-desc").onclick = () => {
+            const d = item.querySelector(".descripcion");
+            d.style.display = d.style.display === "block" ? "none" : "block";
+        };
 
-                const img = document.createElement("img");
-                img.classList.add("poster");
-                img.src = poster;
-                img.alt = p.title;
+        contenedor.appendChild(item);
+    });
+}
 
-                enlace.appendChild(img);
-                item.appendChild(enlace);
+/* PAGINADOR */
+function crearPaginador() {
+    paginador.innerHTML = "";
 
-                const btn = document.createElement("button");
-                btn.classList.add("btn-desc");
-                btn.textContent = "Ver descripción";
+    const crearBtn = (txt, dis, fn) => {
+        const b = document.createElement("button");
+        b.textContent = txt;
+        b.disabled = dis;
+        b.onclick = fn;
+        paginador.appendChild(b);
+    };
 
-                const desc = document.createElement("div");
-                desc.classList.add("descripcion");
-                desc.innerHTML = `
-                    <p><strong>${p.title}</strong></p>
-                    <p>${p.overview || "Sin descripción disponible."}</p>
-                    <p><strong>Estreno:</strong> ${p.release_date}</p>
-                `;
+    crearBtn("Anterior", paginaActual === 1, () => cambiar(paginaActual - 1));
 
-                btn.addEventListener("click", () => {
-                    desc.style.display = desc.style.display === "block" ? "none" : "block";
-                });
+    for (let i = 1; i <= TOTAL_PAGINAS; i++) {
+        const b = document.createElement("button");
+        b.textContent = i;
+        b.classList.toggle("activo", i === paginaActual);
+        b.onclick = () => cambiar(i);
+        paginador.appendChild(b);
+    }
 
-                item.appendChild(btn);
-                item.appendChild(desc);
+    crearBtn("Siguiente", paginaActual === TOTAL_PAGINAS, () => cambiar(paginaActual + 1));
+}
 
-                contenedor.appendChild(item);
-            });
-        }
+function cambiar(n) {
+    paginaActual = n;
+    genero ? cargarGenero() : mostrar(paginas[paginaActual]);
+    crearPaginador();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
-        // Búsqueda de películas por título
-        btnBuscar.addEventListener("click", () => {
-            const texto = inputBuscar.value.trim().toLowerCase();
-            if (!texto) {
-                mostrarPeliculas(todasLasPeliculas);
-                return;
-            }
+/* EVENTOS */
+filtro.onchange = () => {
+    genero = filtro.value;
+    paginaActual = 1;
+    genero ? cargarGenero() : cargarPopulares();
+};
 
-            const filtradas = todasLasPeliculas.filter(p =>
-                p.title && p.title.toLowerCase().includes(texto)
-            );
+btnBuscar.onclick = () => {
+    const t = buscar.value.trim().toLowerCase();
+    if (!t) return genero ? cargarGenero() : mostrar(paginas[paginaActual]);
 
-            mostrarPeliculas(filtradas);
-        });
+    const lista = genero ? [] : paginas[paginaActual];
+    mostrar(lista.filter(p => p.title.toLowerCase().includes(t)));
+};
 
-        // Buscar presionando Enter
-        inputBuscar.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
-                btnBuscar.click();
-            }
-        });
+buscar.onkeydown = e => e.key === "Enter" && btnBuscar.click();
 
-        // Botón Inicio: limpia búsqueda y restablece la lista completa
-        linkInicio.addEventListener("click", () => {
-            inputBuscar.value = "";
-            mostrarPeliculas(todasLasPeliculas);
-        });
-    </script>
-    
+linkInicio.onclick = () => {
+    paginaActual = 1;
+    genero = "";
+    filtro.value = "";
+    buscar.value = "";
+    cargarPopulares();
+};
 
+/* INICIO */
+cargarPopulares();
+</script>
 
 </body>
 </html>
